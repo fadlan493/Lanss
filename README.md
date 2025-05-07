@@ -1,165 +1,104 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>LANSS STORE</title>
   <style>
     body {
-      font-family: monospace;
-      background-color: #0f0f0f;
-      color: #00ffcc;
-      padding: 20px;
-      text-align: center;
-    }
-
-    .button-beli {
-      background-color: #00ffcc;
-      color: #000;
-      padding: 10px 20px;
-      font-weight: bold;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-
-    .hosting-detail {
-      white-space: pre-wrap;
-      text-align: left;
-      margin-top: 30px;
-      border: 2px dashed #00ffcc;
-      padding: 20px;
-      display: none;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeIn 1s ease forwards;
-    }
-
-    @keyframes fadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .whatsapp-link {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
-      background-color: #25D366;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #1e3c72, #2a5298);
       color: white;
-      text-decoration: none;
+      margin: 0;
+      padding: 0;
+      animation: fadeIn 2s ease;
+    }
+    header {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(0,0,0,0.5);
+    }
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.5rem;
+      margin: 0.5rem 0 0;
+    }
+    .paket-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .paket {
+      background: rgba(255,255,255,0.1);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+    .paket:hover {
+      transform: scale(1.05);
+      background: rgba(255,255,255,0.2);
+    }
+    .paket h2 {
+      font-size: 1.5rem;
+    }
+    .paket p {
+      margin: 0.5rem 0;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .paket a {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #00ff88;
+      color: black;
+      padding: 0.5rem 1rem;
       border-radius: 5px;
+      text-decoration: none;
       font-weight: bold;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
+  <header>
+    <h1>LANSS STORE</h1>
+    <p>HOSTING MINECRAFT JAVA/BEDROCK</p>
+  </header>  <div class="paket-container">
+    <!-- Pakets Loop -->
+    <script>
+      const paketContainer = document.currentScript.parentElement;
+      const paketList = [
+        { ram: 1, storage: 2, cpu: 200, backup: 2, port: 1 },
+        { ram: 2, storage: 4, cpu: 200, backup: 2, port: 1 },
+        { ram: 3, storage: 6, cpu: 200, backup: 2, port: 1 },
+        { ram: 4, storage: 8, cpu: 200, backup: 2, port: 1 },
+        { ram: 5, storage: 10, cpu: 400, backup: 2, port: 1 },
+        { ram: 6, storage: 12, cpu: 400, backup: 2, port: 1 },
+        { ram: 7, storage: 14, cpu: 400, backup: 2, port: 1 },
+        { ram: 8, storage: 16, cpu: 400, backup: 2, port: 1 },
+        { ram: 9, storage: 18, cpu: 400, backup: 2, port: 1 },
+        { ram: 10, storage: 20, cpu: 400, backup: 2, port: 1 },
+        { ram: 11, storage: 22, cpu: 400, backup: 2, port: 1 },
+        { ram: 12, storage: 24, cpu: 400, backup: 2, port: 1 },
+      ];paketList.forEach((paket, index) => {
+    const el = document.createElement('div');
+    el.className = 'paket';
+    el.innerHTML = `
+      <h2>𝙿𝙰𝙺𝙴𝚃 #${index + 1}</h2>
+      <p>𝚁𝚊𝚖 : ${paket.ram}𝙶𝙱\n𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : ${paket.storage}𝙶𝙱\n𝙲𝚙𝚞 : ${paket.cpu}%\n𝙱𝚊𝚌𝚔𝚞𝚙 : ${paket.backup}\n𝙿𝚘𝚛𝚝 : ${paket.port}</p>
+      <a href="https://wa.me/6282142570902?text=Halo%20saya%20ingin%20membeli%20PAKET%20#${index + 1}" target="_blank">Beli</a>
+    `;
+    paketContainer.appendChild(el);
+  });
+</script>
 
-  <h1>*[ LANSS STORE ]*</h1>
-
-  <button class="button-beli" onclick="tampilkanPaket()">Beli</button>
-
-  <div class="hosting-detail" id="hosting-detail">
-𝙿𝙰𝙺𝙴𝚃 #𝟷
-𝚁𝚊𝚖 : 𝟷𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟸𝙶𝙱
-𝙲𝚙𝚞 : 𝟸𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟸
-𝚁𝚊𝚖 : 𝟸𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟺𝙶𝙱
-𝙲𝚙𝚞 : 𝟸𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟹
-𝚁𝚊𝚖 : 𝟹𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟼𝙶𝙱
-𝙲𝚙𝚞 : 𝟸𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟺
-𝚁𝚊𝚖 : 𝟺𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟾𝙶𝙱
-𝙲𝚙𝚞 : 𝟸𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟻
-𝚁𝚊𝚖 : 𝟻𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟷𝟶𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟼
-𝚁𝚊𝚖 : 𝟼𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟷𝟸𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟽
-𝚁𝚊𝚖 : 𝟽𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟷𝟺𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟾
-𝚁𝚊𝚖 : 𝟾𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟷𝟼𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟿
-𝚁𝚊𝚖 : 𝟿𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟷𝟾𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟷𝟶
-𝚁𝚊𝚖 : 𝟷𝟶𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟸𝟶𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟷𝟷
-𝚁𝚊𝚖 : 𝟷𝟷𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟸𝟸𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-𝙿𝙰𝙺𝙴𝚃 #𝟷𝟸
-𝚁𝚊𝚖 : 𝟷𝟸𝙶𝙱
-𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : 𝟸𝟺𝙶𝙱
-𝙲𝚙𝚞 : 𝟺𝟶𝟶%
-𝙱𝚊𝚌𝚔𝚞𝚙 : 𝟸
-𝙿𝚘𝚛𝚝 : 𝟷
-
-<a class="whatsapp-link" href="https://wa.me/6282142570902" target="_blank">Hubungi via WhatsApp</a>
   </div>
-
-  <script>
-    function tampilkanPaket() {
-      var hostingDetail = document.getElementById('hosting-detail');
-      hostingDetail.style.display = 'block';
-      hostingDetail.style.animation = 'fadeIn 1s ease forwards';
-    }
-  </script>
-
 </body>
 </html>
