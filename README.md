@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="id">
+<!DOCTYPE html>
+<html lang="id">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,8 +71,9 @@
   <header>
     <h1>LANSS STORE</h1>
     <p>HOSTING MINECRAFT JAVA/BEDROCK</p>
-  </header>  <div class="paket-container">
-    <!-- Pakets Loop -->
+  </header>
+
+  <div class="paket-container">
     <script>
       const paketContainer = document.currentScript.parentElement;
       const paketList = [
@@ -87,18 +89,31 @@
         { ram: 10, storage: 20, cpu: 400, backup: 2, port: 1 },
         { ram: 11, storage: 22, cpu: 400, backup: 2, port: 1 },
         { ram: 12, storage: 24, cpu: 400, backup: 2, port: 1 },
-      ];paketList.forEach((paket, index) => {
-    const el = document.createElement('div');
-    el.className = 'paket';
-    el.innerHTML = `
-      <h2>𝙿𝙰𝙺𝙴𝚃 #${index + 1}</h2>
-      <p>𝚁𝚊𝚖 : ${paket.ram}𝙶𝙱\n𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : ${paket.storage}𝙶𝙱\n𝙲𝚙𝚞 : ${paket.cpu}%\n𝙱𝚊𝚌𝚔𝚞𝚙 : ${paket.backup}\n𝙿𝚘𝚛𝚝 : ${paket.port}</p>
-      <a href="https://wa.me/6282142570902?text=Halo%20saya%20ingin%20membeli%20PAKET%20#${index + 1}" target="_blank">Beli</a>
-    `;
-    paketContainer.appendChild(el);
-  });
-</script>
+      ];
 
+      function formatRupiah(angka) {
+        return 'Rp' + angka.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+      }
+
+      paketList.forEach((paket, index) => {
+        const harga = paket.ram * 4000000; // Harga dalam rupiah
+        const el = document.createElement('div');
+        el.className = 'paket';
+        el.innerHTML = `
+          <h2>𝙿𝙰𝙺𝙴𝚃 #${index + 1}</h2>
+          <p>
+𝚁𝚊𝚖      : ${paket.ram}𝙶𝙱
+𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : ${paket.storage}𝙶𝙱
+𝙲𝚙𝚞     : ${paket.cpu}%
+𝙱𝚊𝚌𝚔𝚞𝚙   : ${paket.backup}
+𝙿𝚘𝚛𝚝     : ${paket.port}
+          </p>
+          <p><strong>Harga: ${formatRupiah(harga)}</strong></p>
+          <a href="https://wa.me/6282142570902?text=Halo%20saya%20ingin%20membeli%20PAKET%20#${index + 1}" target="_blank">Beli</a>
+        `;
+        paketContainer.appendChild(el);
+      });
+    </script>
   </div>
 </body>
 </html>
