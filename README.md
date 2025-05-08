@@ -100,4 +100,20 @@
         const el = document.createElement('div');
         el.className = 'paket';
         el.innerHTML = `
-          <h2>𝙿𝙰𝙺𝙴
+          <h2>𝙿𝙰𝙺𝙴𝚃 #${index + 1}</h2>
+          <p>
+𝚁𝚊𝚖      : ${paket.ram}𝙶𝙱
+𝚂𝚝𝚘𝚛𝚊𝚐𝚎 : ${paket.storage}𝙶𝙱
+𝙲𝚙𝚞     : ${paket.cpu}%
+𝙱𝚊𝚌𝚔𝚞𝚙   : ${paket.backup}
+𝙿𝚘𝚛𝚝     : ${paket.port}
+          </p>
+          <p><strong>Harga: ${formatRupiah(harga)}</strong></p>
+          <a href="https://wa.me/6282142570902?text=SAYA%20MAU%20BELI%20PAKET%20${index + 1}" target="_blank">Beli</a>
+        `;
+        paketContainer.appendChild(el);
+      });
+    </script>
+  </div>
+</body>
+</html>
