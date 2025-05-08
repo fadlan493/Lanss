@@ -10,7 +10,6 @@
       margin: 0;
       padding: 0;
       background: linear-gradient(to bottom, #1e003e, #2e004f);
-      background-size: cover;
       color: white;
     }
 
@@ -96,12 +95,53 @@
       color: #a100ff;
     }
 
+    .keunggulan {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    .keunggulan h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .keunggulan p {
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .box-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      padding: 0 1rem;
+    }
+
+    .box {
+      background: white;
+      color: black;
+      padding: 1.5rem;
+      border-radius: 10px;
+      width: 280px;
+      box-shadow: 0 0 10px 2px red;
+      border: 2px solid red;
+      transition: transform 0.3s ease;
+    }
+
+    .box:hover {
+      transform: scale(1.05);
+    }
+
+    .produk-section {
+      padding: 2rem;
+      background: black;
+    }
+
     .paket-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1rem;
-      padding: 2rem;
-      display: none;
     }
 
     .paket {
@@ -144,10 +184,6 @@
     .fade-in-up {
       animation: fadeInUp 0.6s ease forwards;
     }
-
-    .dark-background {
-      background: #000;
-    }
   </style>
 </head>
 <body>
@@ -164,12 +200,33 @@
     <p>Menyediakan kebutuhan Minecraft terbaik dengan kualitas premium<br>
     dan harga terjangkau. Hosting Minecraft, VPS Digital Ocean, Server Siap Pakai, dan banyak lagi!</p>
     <div class="buttons">
-      <a href="javascript:void(0);" class="btn btn-primary" onclick="showPaketList()">LIHAT PRODUK</a>
+      <a href="javascript:void(0);" class="btn btn-primary" id="scrollToProduk">LIHAT PRODUK</a>
       <a href="https://wa.me/6282142570902" class="btn btn-outline" target="_blank">HUBUNGI KAMI</a>
     </div>
   </header>
 
-  <div class="paket-container" id="paketList"></div>
+  <section class="keunggulan">
+    <h2>Keunggulan Kami</h2>
+    <p>Kami memberikan layanan terbaik dengan berbagai keunggulan untuk pengalaman Minecraft Anda</p>
+    <div class="box-container">
+      <div class="box">
+        <h3>Perform Tinggi</h3>
+        <p>Server dengan performa tinggi dan stabil, anti lag dan anti down untuk pengalaman bermain yang lancar.</p>
+      </div>
+      <div class="box">
+        <h3>Backup Premium</h3>
+        <p>Layanan backup server premium untuk menjaga data Anda tetap aman dan tersedia kapan saja.</p>
+      </div>
+      <div class="box">
+        <h3>Dukungan 24/7</h3>
+        <p>Tim support siap membantu Anda 24 jam sehari, 7 hari seminggu untuk semua kebutuhan server Minecraft Anda.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="produk-section" id="produk">
+    <div class="paket-container" id="paketList"></div>
+  </section>
 
   <script>
     const paketContainer = document.getElementById('paketList');
@@ -193,10 +250,7 @@
     }
 
     function showPaketList() {
-      document.body.classList.add('dark-background');
-      paketContainer.style.display = 'grid';
       paketContainer.innerHTML = '';
-
       paketList.forEach((paket, index) => {
         const harga = paket.ram * 4000000;
         const el = document.createElement('div');
@@ -219,6 +273,14 @@
         }, index * 150);
       });
     }
+
+    // Scroll dan tampilkan produk saat tombol ditekan
+    document.getElementById('scrollToProduk').addEventListener('click', function () {
+      document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
+    });
+
+    // Tampilkan produk langsung saat halaman dibuka
+    document.addEventListener('DOMContentLoaded', showPaketList);
   </script>
 </body>
-</html>    
+</html>
