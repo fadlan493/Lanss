@@ -7,16 +7,18 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #1e3c72, #2a5298);
-      color: white;
       margin: 0;
       padding: 0;
       animation: fadeIn 2s ease;
+      background: linear-gradient(45deg, #1e3c72, #2a5298, #ff6a00, #ff0099);
+      background-size: 400% 400%;
+      animation: gradientAnimation 15s ease infinite;
+      color: white;
     }
     header {
       text-align: center;
       padding: 2rem;
-      background: rgba(0,0,0,0.5);
+      background: rgba(0, 0, 0, 0.5);
     }
     header h1 {
       font-size: 3rem;
@@ -33,7 +35,7 @@
       padding: 2rem;
     }
     .paket {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255, 255, 255, 0.1);
       border-radius: 10px;
       padding: 1.5rem;
       text-align: center;
@@ -41,7 +43,7 @@
     }
     .paket:hover {
       transform: scale(1.05);
-      background: rgba(255,255,255,0.2);
+      background: rgba(255, 255, 255, 0.2);
     }
     .paket h2 {
       font-size: 1.5rem;
@@ -64,6 +66,17 @@
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
+    }
+    @keyframes gradientAnimation {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
     }
   </style>
 </head>
