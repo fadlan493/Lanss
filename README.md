@@ -113,6 +113,17 @@
         `;
         paketContainer.appendChild(el);
       });
+
+      // Tambahkan kotak "Beli" untuk semua paket sekaligus
+      const beliSemuaText = Array.from({length: 12}, (_, i) => `SAYA MAU BELI PAKET ${i + 1}`).join('%0A');
+      const beliSemua = document.createElement('div');
+      beliSemua.className = 'paket';
+      beliSemua.innerHTML = `
+        <h2>𝙱𝙴𝙻𝙸</h2>
+        <p>Pesan semua paket sekaligus</p>
+        <a href="https://wa.me/6282142570902?text=${beliSemuaText}" target="_blank">Beli</a>
+      `;
+      paketContainer.appendChild(beliSemua);
     </script>
   </div>
 </body>
