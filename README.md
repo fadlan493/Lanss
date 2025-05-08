@@ -9,39 +9,91 @@
       font-family: 'Segoe UI', sans-serif;
       margin: 0;
       padding: 0;
-      background: linear-gradient(45deg, #1e3c72, #2a5298, #ff6a00, #ff0099);
-      background-size: 400% 400%;
-      animation: gradientAnimation 15s ease infinite;
+      background: linear-gradient(to bottom, #1e003e, #2e004f);
+      background-size: cover;
       color: white;
-      transition: background 0.3s ease;
     }
 
-    header {
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #2a004d;
+      padding: 10px 20px;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+    }
+
+    .brand {
+      color: #c600ff;
+      font-size: 20px;
+      font-weight: bold;
+    }
+
+    .hamburger {
+      font-size: 26px;
+      color: white;
+      cursor: pointer;
+    }
+
+    header.main {
       text-align: center;
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.5);
+      padding: 3rem 1rem;
     }
 
-    header h1 {
-      font-size: 3rem;
+    header.main h1 {
+      font-size: 2.5rem;
       margin: 0;
+      font-weight: bold;
     }
 
-    header p {
-      font-size: 1.5rem;
-      margin: 0.5rem 0 0;
+    header.main h1 span {
+      color: #c600ff;
     }
 
-    .btn-hosting {
-      display: inline-block;
+    header.main p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      line-height: 1.6;
+    }
+
+    .buttons {
       margin-top: 2rem;
-      background: #00ff88;
-      color: black;
-      padding: 0.5rem 1rem;
-      border-radius: 5px;
-      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
       font-weight: bold;
       cursor: pointer;
+      border: none;
+      text-decoration: none;
+      font-size: 1rem;
+    }
+
+    .btn-primary {
+      background: #a100ff;
+      color: white;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #a100ff;
+      color: #a100ff;
     }
 
     .paket-container {
@@ -82,22 +134,6 @@
       font-weight: bold;
     }
 
-    @keyframes gradientAnimation {
-      0% {
-        background-position: 0% 50%;
-      }
-      50% {
-        background-position: 100% 50%;
-      }
-      100% {
-        background-position: 0% 50%;
-      }
-    }
-
-    .dark-background {
-      background: #000;
-    }
-
     @keyframes fadeInUp {
       to {
         opacity: 1;
@@ -108,13 +144,29 @@
     .fade-in-up {
       animation: fadeInUp 0.6s ease forwards;
     }
+
+    .dark-background {
+      background: #000;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>LANSS STORE</h1>
-    <p>HOSTING MINECRAFT JAVA/BEDROCK</p>
-    <a href="javascript:void(0);" class="btn-hosting" onclick="showPaketList()">HOSTING MINECRAFT</a>
+  <div class="navbar">
+    <div class="nav-left">
+      <img src="https://i.ibb.co/Xj0Q8tD/pp.jpg" alt="Logo" class="logo" />
+      <div class="brand">LANSS STORE</div>
+    </div>
+    <div class="hamburger">&#9776;</div>
+  </div>
+
+  <header class="main">
+    <h1>Selamat <br> Datang di <br> <span>LANSS STORE</span></h1>
+    <p>Menyediakan kebutuhan Minecraft terbaik dengan kualitas premium<br>
+    dan harga terjangkau. Hosting Minecraft, VPS Digital Ocean, Server Siap Pakai, dan banyak lagi!</p>
+    <div class="buttons">
+      <a href="javascript:void(0);" class="btn btn-primary" onclick="showPaketList()">LIHAT PRODUK</a>
+      <a href="https://wa.me/6282142570902" class="btn btn-outline" target="_blank">HUBUNGI KAMI</a>
+    </div>
   </header>
 
   <div class="paket-container" id="paketList"></div>
@@ -141,10 +193,7 @@
     }
 
     function showPaketList() {
-      // Ganti latar belakang
       document.body.classList.add('dark-background');
-
-      // Tampilkan container
       paketContainer.style.display = 'grid';
       paketContainer.innerHTML = '';
 
@@ -165,8 +214,6 @@
           <a href="https://wa.me/6282142570902?text=SAYA%20MAU%20BELI%20PAKET%20${index + 1}" target="_blank">Beli</a>
         `;
         paketContainer.appendChild(el);
-
-        // Tambahkan delay animasi satu per satu
         setTimeout(() => {
           el.classList.add('fade-in-up');
         }, index * 150);
@@ -174,4 +221,4 @@
     }
   </script>
 </body>
-</html>
+</html>    
