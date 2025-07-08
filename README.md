@@ -201,7 +201,7 @@
     dan harga terjangkau. Hosting Minecraft, VPS Digital Ocean, Server Siap Pakai, dan banyak lagi!</p>
     <div class="buttons">
       <a href="javascript:void(0);" class="btn btn-primary" id="scrollToProduk">LIHAT PRODUK</a>
-      <a href="https://wa.me/6282142570902" class="btn btn-outline" target="_blank">HUBUNGI KAMI</a>
+      <a href="https://wa.me/6285755152817" class="btn btn-outline" target="_blank">HUBUNGI KAMI</a>
     </div>
   </header>
 
@@ -265,7 +265,7 @@
 𝙿𝚘𝚛𝚝     : ${paket.port}
           </p>
           <p><strong>Harga: ${formatRupiah(harga)}</strong></p>
-          <a href="https://wa.me/6282142570902?text=SAYA%20MAU%20BELI%20PAKET%20${index + 1}" target="_blank">Beli</a>
+          <a href="https://wa.me/6285755152817?text=SAYA%20MAU%20BELI%20PAKET%20${index + 1}" target="_blank">Beli</a>
         `;
         paketContainer.appendChild(el);
         setTimeout(() => {
