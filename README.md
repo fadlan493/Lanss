@@ -252,7 +252,7 @@
     function showPaketList() {
       paketContainer.innerHTML = '';
       paketList.forEach((paket, index) => {
-        const harga = paket.ram * 4000000;
+        const harga = paket.ram * 5000; // Harga per GB = 5000
         const el = document.createElement('div');
         el.className = 'paket';
         el.innerHTML = `
@@ -274,12 +274,10 @@
       });
     }
 
-    // Scroll dan tampilkan produk saat tombol ditekan
     document.getElementById('scrollToProduk').addEventListener('click', function () {
       document.getElementById('produk').scrollIntoView({ behavior: 'smooth' });
     });
 
-    // Tampilkan produk langsung saat halaman dibuka
     document.addEventListener('DOMContentLoaded', showPaketList);
   </script>
 </body>
